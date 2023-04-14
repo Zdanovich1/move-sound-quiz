@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap"
+      rel="stylesheet">
+   <link rel="icon" href="../../assets/svg/favicon.ico">
+   <link rel="stylesheet" href="style.css">
+   <title>Sound Quiz</title>
+</head>
+
+<body>
+   <div class="wrapper">
+      <div class="container">
+         <header class="header">
+            <div class="header__logo">
+               <img src="../../assets/images/logo-var-1.png" alt="logo">
+            </div>
+            <div class="header__score">
+               <h3>
+                  Score: <span id="score">0</span>
+               </h3>
+            </div>
+         </header>
+
+         <main class="content">
+            <div class="content__levels">
+               <div class="level">
+                  <p>Warm-up</p>
+               </div>
+               <div class="level">
+                  <p>Fantasy & Sci-Fi</p>
+               </div>
+               <div class="level">
+                  <p>Drama</p>
+               </div>
+               <div class="level">
+                  <p>Adventure & Action</p>
+               </div>
+               <div class="level">
+                  <p>Сomedy</p>
+               </div>
+               <div class="level">
+                  <p>Animation</p>
+               </div>
+            </div>
+            <div class="content__question question">
+               <div class="question__img"></div>
+               <div class="question__audio audio">
+                  <div class="audio__name">
+                     <p>***********</p>
+                  </div>
+                  <div class="audio__player">
+                     <div class="audio-hide">
+                     </div>
+                     <div class="controls">
+                        <div class="controls__play">
+                           <div class="play-btn"><button class="play"></button></div>
+                           <div class="pause-btn inactive"><button class="pause"></button></div>
+                           <input type="range" id="time-range" min="0" max="100" step="1" value="0">
+                        </div>
+                        <div class="controls__volume">
+                           <div class="volume-btn"><button class="volume"></button></div>
+                           <div class="mute-btn inactive"><button class="volume-mute"></button></div>
+                           <input type="range" id="volume-range" value="40" min="0" max="100" step="1"
+                              style="background-size: 40% 100%;">
+                        </div>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+            <div class="content__answer answer">
+               <div class="answer__variants variants">
+                  <ul class="variants__list">
+                     <li class="list__item" data-id="1"><span class="item__btn">Властелин колец</span></li>
+                     <li class="list__item" data-id="2"><span class="item__btn">Пираты карибского моря</span></li>
+                     <li class="list__item" data-id="3"><span class="item__btn">Гарри Поттер</span></li>
+                     <li class="list__item" data-id="4"><span class="item__btn">Звездные войны</span></li>
+                     <li class="list__item" data-id="5"><span class="item__btn">Терминатор</span></li>
+                     <li class="list__item" data-id="6"><span class="item__btn">Крестный отец</span></li>
+                  </ul>
+               </div>
+               <div class="answer__info">
+                  <p class="defoult-answer__info">1 шаг - послушайте плеер <br> 2 шаг - выберите ответ из списка</p>
+                  <div class="answer__variant variant inactive">
+                     <div class="variant__img"></div>
+                     <div class="variant__sound sound">
+                        <p class="sound__name">
+                        </p>
+                        <p class="sound__description"></p>
+                        <div class="sound__player">
+                           <div class="sound-hide">
+                           </div>
+                           <div class="var-controls">
+                              <div class="var-controls__play">
+                                 <div class="var-play-btn"><button class="var-play"></button></div>
+                                 <div class="var-pause-btn inactive"><button class="var-pause"></button></div>
+                                 <input type="range" id="var-time-range" min="0" max="100" step="1" value="0">
+                              </div>
+                              <div class="var-controls__volume">
+                                 <div class="var-volume-btn"><button class="var-volume"></button></div>
+                                 <div class="var-mute-btn inactive"><button class="var-volume-mute"></button></div>
+                                 <input type="range" id="var-volume-range" value="40" min="0" max="100" step="1"
+                                    style="background-size: 40% 100%;">
+                              </div>
+                           </div>
+                        </div>
+
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="content__button">
+               <button class="next-button">Next Level</button>
+               <button class="score-button inactive">Result</button>
+            </div>
+            <div class="content__result">
+               <div class="inner">
+                  <h4>Thanks for playing!</h4>
+                  <p>Your result - <span id="result-game"></span> out of 30 possible</p>
+                  <button class="new-game">Start new Game</button>
+               </div>
+            </div>
+            <div class="content__back inactive"></div>
+         </main>
+         <footer class="footer">
+            <div class="footer__item">
+               <a href="https://github.com/Zdanovich1" class="github" target="_blank">My github</a>
+            </div>
+            <div class="footer__item">2022</div>
+            <!--div class="footer__item rs-link">
+               <a href="https://rs.school/js" target="_blank">
+                  <img src="../../assets/svg/rs_school_js-white.svg" alt="rs-logo">
+               </a>
+            </div-->
+         </footer>
+         <audio src="../../assets/audio/right.mp3" class="sound-right inactive"></audio>
+         <audio src="../../assets/audio/wrong.mp3" class="sound-wrong inactive"></audio>
+      </div>
+   </div>
+   <script src="index.js"></script>
+   <script src="main-player.js"></script>
+   <script src="variant-player.js"></script>
+</body>
+
+</html>
